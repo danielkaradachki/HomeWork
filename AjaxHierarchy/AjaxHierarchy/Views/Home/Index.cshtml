@@ -16,8 +16,7 @@
         .DataSource(source=> source.Ajax()
                 .Read(read => read.Action("Read_OrderDetails", "Home", new { id = "#=OrderID#" })))                 
         .ToClientTemplate()                
-    )
-          
+    )          
 </script>
 
 
