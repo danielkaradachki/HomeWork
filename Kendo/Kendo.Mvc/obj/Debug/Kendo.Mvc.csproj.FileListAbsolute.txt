@@ -1,0 +1,108 @@
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\Kendo.Mvc.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\Kendo.Mvc.pdb
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\bg-BG\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\da-DK\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\de-DE\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\es-ES\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\fr-FR\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\nl-NL\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\pl-PL\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\pt-BR\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\pt-PT\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\ru-RU\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\uk-UA\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\zh-CN\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\System.Web.Mvc.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\System.Web.Razor.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\System.Web.WebPages.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\System.Web.Mvc.xml
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\System.Web.Razor.xml
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\System.Web.WebPages.xml
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\Kendo.Mvc.csprojResolveAssemblyReference.cache
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.resources
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Exceptions.resources
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.bg-BG.resources
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.da-DK.resources
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.de-DE.resources
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.es-ES.resources
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.fr-FR.resources
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.nl-NL.resources
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.pl-PL.resources
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.pt-BR.resources
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.pt-PT.resources
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.ru-RU.resources
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.uk-UA.resources
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.zh-CN.resources
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\Kendo.Mvc.csproj.GenerateResource.Cache
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\bg-BG\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\da-DK\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\de-DE\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\es-ES\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\fr-FR\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\nl-NL\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\pl-PL\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\pt-BR\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\pt-PT\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\ru-RU\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\uk-UA\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\zh-CN\Kendo.Mvc.resources.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\Kendo.Mvc.dll
+C:\Program Files (x86)\Telerik\Kendo UI for ASP.NET MVC Q3 2012\src\Kendo.Mvc\obj\Debug\Kendo.Mvc.pdb
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\Kendo.Mvc.dll
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\Kendo.Mvc.pdb
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\bg-BG\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\da-DK\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\de-DE\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\es-ES\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\fr-FR\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\nl-NL\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\pl-PL\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\pt-BR\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\pt-PT\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\ru-RU\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\uk-UA\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\zh-CN\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\System.Web.Mvc.dll
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\System.Web.Razor.dll
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\System.Web.WebPages.dll
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\System.Web.WebPages.Razor.dll
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\System.Web.Mvc.xml
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\System.Web.Razor.xml
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\System.Web.WebPages.xml
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\System.Web.WebPages.Razor.xml
+C:\GitTest\Kendo\Kendo.Mvc\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\Kendo.Mvc.csprojResolveAssemblyReference.cache
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.resources
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Exceptions.resources
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.bg-BG.resources
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.da-DK.resources
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.de-DE.resources
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.es-ES.resources
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.fr-FR.resources
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.nl-NL.resources
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.pl-PL.resources
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.pt-BR.resources
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.pt-PT.resources
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.ru-RU.resources
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.uk-UA.resources
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\Kendo.Mvc.Resources.Messages.zh-CN.resources
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\Kendo.Mvc.csproj.GenerateResource.Cache
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\bg-BG\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\da-DK\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\de-DE\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\es-ES\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\fr-FR\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\nl-NL\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\pl-PL\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\pt-BR\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\pt-PT\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\ru-RU\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\uk-UA\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\zh-CN\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\Kendo.Mvc.dll
+C:\GitTest\Kendo\Kendo.Mvc\obj\Debug\Kendo.Mvc.pdb

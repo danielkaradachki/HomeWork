@@ -1,0 +1,38 @@
+C:\Users\Daniel\Documents\Visual Studio 2010\Projects\MVC\Kendo\Kendo\bin\Kendo.dll
+C:\Users\Daniel\Documents\Visual Studio 2010\Projects\MVC\Kendo\Kendo\bin\Kendo.pdb
+C:\Users\Daniel\Documents\Visual Studio 2010\Projects\MVC\Kendo\Kendo\bin\Kendo.Mvc.dll
+C:\Users\Daniel\Documents\Visual Studio 2010\Projects\MVC\Kendo\Kendo\bin\bg-BG\Kendo.Mvc.resources.dll
+C:\Users\Daniel\Documents\Visual Studio 2010\Projects\MVC\Kendo\Kendo\bin\da-DK\Kendo.Mvc.resources.dll
+C:\Users\Daniel\Documents\Visual Studio 2010\Projects\MVC\Kendo\Kendo\bin\de-DE\Kendo.Mvc.resources.dll
+C:\Users\Daniel\Documents\Visual Studio 2010\Projects\MVC\Kendo\Kendo\bin\es-ES\Kendo.Mvc.resources.dll
+C:\Users\Daniel\Documents\Visual Studio 2010\Projects\MVC\Kendo\Kendo\bin\fr-FR\Kendo.Mvc.resources.dll
+C:\Users\Daniel\Documents\Visual Studio 2010\Projects\MVC\Kendo\Kendo\bin\nl-NL\Kendo.Mvc.resources.dll
+C:\Users\Daniel\Documents\Visual Studio 2010\Projects\MVC\Kendo\Kendo\bin\pl-PL\Kendo.Mvc.resources.dll
+C:\Users\Daniel\Documents\Visual Studio 2010\Projects\MVC\Kendo\Kendo\bin\pt-BR\Kendo.Mvc.resources.dll
+C:\Users\Daniel\Documents\Visual Studio 2010\Projects\MVC\Kendo\Kendo\bin\pt-PT\Kendo.Mvc.resources.dll
+C:\Users\Daniel\Documents\Visual Studio 2010\Projects\MVC\Kendo\Kendo\bin\ru-RU\Kendo.Mvc.resources.dll
+C:\Users\Daniel\Documents\Visual Studio 2010\Projects\MVC\Kendo\Kendo\bin\uk-UA\Kendo.Mvc.resources.dll
+C:\Users\Daniel\Documents\Visual Studio 2010\Projects\MVC\Kendo\Kendo\bin\zh-CN\Kendo.Mvc.resources.dll
+C:\Users\Daniel\Documents\Visual Studio 2010\Projects\MVC\Kendo\Kendo\obj\Debug\Kendo.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\Documents\Visual Studio 2010\Projects\MVC\Kendo\Kendo\obj\Debug\Kendo.dll
+C:\Users\Daniel\Documents\Visual Studio 2010\Projects\MVC\Kendo\Kendo\obj\Debug\Kendo.pdb
+C:\Users\Daniel\Documents\Visual Studio 2010\Projects\MVC\Kendo\Kendo\bin\Kendo.Mvc.pdb
+C:\GitTest\Kendo\Kendo\bin\Kendo.dll
+C:\GitTest\Kendo\Kendo\bin\Kendo.pdb
+C:\GitTest\Kendo\Kendo\bin\Kendo.Mvc.dll
+C:\GitTest\Kendo\Kendo\bin\Kendo.Mvc.pdb
+C:\GitTest\Kendo\Kendo\bin\bg-BG\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo\bin\da-DK\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo\bin\de-DE\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo\bin\es-ES\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo\bin\fr-FR\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo\bin\nl-NL\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo\bin\pl-PL\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo\bin\pt-BR\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo\bin\pt-PT\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo\bin\ru-RU\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo\bin\uk-UA\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo\bin\zh-CN\Kendo.Mvc.resources.dll
+C:\GitTest\Kendo\Kendo\obj\Debug\Kendo.csprojResolveAssemblyReference.cache
+C:\GitTest\Kendo\Kendo\obj\Debug\Kendo.dll
+C:\GitTest\Kendo\Kendo\obj\Debug\Kendo.pdb

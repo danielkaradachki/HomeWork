@@ -1,0 +1,8 @@
+﻿@model Kendo.Models.Category
+
+@(
+    Html.Kendo().ComboBoxFor(m=> m)
+        .DataTextField("CategoryName")
+        .DataValueField("CategoryID")
+        .BindTo((System.Collections.IEnumerable)ViewData["categories"])
+)
