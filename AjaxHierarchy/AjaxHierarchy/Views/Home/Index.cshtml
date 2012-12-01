@@ -2,17 +2,57 @@
     ViewBag.Title = "Home Page";
 }
 
-<h2>@ViewBag.Message</h2>
-<p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-</p>
+<script type="text/kendo" id="OrderDetailsTemplate">
+  @(Html.Kendo().Grid<Order_Detail>()
+        .Name("OrderDetails_#=OrderID#")
+        .Columns(columns =>
+        {
+            columns.Bound(od => od.Product.ProductName).Width(233);
+            columns.Bound(od => od.Quantity).Width(200);
+            columns.Bound(od => od.UnitPrice).Width(200);
+            columns.Bound(od => od.Discount);
+        })
+        .Pageable().Sortable().Filterable()
+        .DataSource(source=> source.Ajax()
+                .Read(read => read.Action("Read_OrderDetails", "Home", new { id = "#=OrderID#" })))                 
+        .ToClientTemplate()                
+    )
+          
+</script>
 
-<p>
-    To learn more about working with the Kendo UI Complete for ASP.NET MVC, you can visit the folowing resources:
-</p>
-<ul>
-        <li><a href="http://demos.kendoui.com/">online demos</a></li>
-        <li><a href="http://docs.kendoui.com/getting-started/using-kendo-with/aspnet-mvc/introduction">online documentation</a></li>
-        <li><a href="http://www.kendoui.com/forums.aspx">community forums</a></li>
-        <li><a href="http://tv.telerik.com/search?FilterByTags=KendoUI">videos on Telerik TV</a></li>
-</ul>
+
+<script type="text/kendo" id="OrdersTemplate">
+  @(Html.Kendo().Grid<Order>()
+        .Name("Orders_#=EmployeeID#")
+        .Columns(columns =>
+        {
+            columns.Bound(o => o.OrderID).Width(101);
+            columns.Bound(o => o.ShipCountry).Width(140);
+            columns.Bound(o => o.ShipAddress).Width(200);
+            columns.Bound(o => o.ShipName).Width(200);
+            columns.Bound(o => o.ShippedDate).Format("{0:d}");
+        })  
+        .Pageable().Sortable().Filterable()
+        .DataSource(source=> source.Ajax()
+                .Read(read => read.Action("Read_Orders", "Home", new { id = "#=EmployeeID#" }))) 
+        .ClientDetailTemplateId("OrderDetailsTemplate")
+        .ToClientTemplate()                
+    )
+          
+</script>
+
+@(Html.Kendo().Grid<Employee>()
+    .Name("Employees")
+    .Columns(columns =>
+    {
+        columns.Bound(e => e.FirstName).Width(140);
+        columns.Bound(e => e.LastName).Width(140);
+        columns.Bound(e => e.Title).Width(200);
+        columns.Bound(e => e.Country).Width(200);
+        columns.Bound(e => e.City);
+    })  
+    .Pageable().Sortable().Filterable()
+    .DataSource(source=> source.Ajax()
+                    .Read(read => read.Action("Read_Employees","Home"))) 
+    .ClientDetailTemplateId("OrdersTemplate")
+)  
