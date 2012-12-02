@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@(Html.Kendo().Grid<UploadInPopUp.Models.Employee>()
+    .Name("Grid")    
+    .Columns(columns => {        
+        columns.Bound(p => p.EmployeeID);
+        columns.Bound(p => p.FirstName);
+        columns.Bound(p => p.LastName);
+        columns.Bound(p => p.PhotoPath).ClientTemplate("<img src='" + Url.Action("PhotoThumb", "Home") + "/#=EmployeeID#" + "' >");
+        columns.Command(command => command.Edit());  
+    })    
+    .ToolBar(toolBar => toolBar.Create())
+    .Editable(editable => editable.Mode(GridEditMode.PopUp))
+    .Pageable()
+    .Sortable()
+    .Filterable()    
+    .DataSource(dataSource => dataSource        
+        .Ajax()         
+        .Model(model => { 
+            model.Id(p => p.EmployeeID);
+            model.Field(p => p.EmployeeID).Editable(false);
+            model.Field(p => p.FirstName).DefaultValue("");
+            model.Field(p => p.LastName).DefaultValue("");
+        })      
+        .Read(read => read.Action("Read", "Home"))
+        .Update(update => update.Action("Update", "Home"))
+        .Create(create => create.Action("Create", "Home"))
+    )
+)
+<style type="text/css">
+
+</style>

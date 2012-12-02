@@ -1,0 +1,84 @@
+﻿@model UploadInPopUp.Models.Employee
+<script type="text/javascript">
+    function success() {
+
+    }
+</script>
+<div>
+    <div>
+        @Html.LabelFor(m => m.EmployeeID)
+        <span data-bind="text: EmployeeID"></span>
+    </div>
+    <div>
+        @Html.LabelFor(m => m.FirstName)
+        @Html.TextBoxFor(m => m.FirstName)
+        @Html.ValidationMessageFor(m => m.FirstName)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.LastName)
+        @Html.TextBoxFor(m => m.LastName)
+        @Html.ValidationMessageFor(m => m.LastName)
+    </div>
+    <div class="popupUpload">
+        @(
+            Html.Kendo().Upload()
+                .Name("PhotoPathUpload")
+                .Multiple(false)
+                .Async(async =>
+                {
+                    async.AutoUpload(true);
+                    async.Save("Save", "Home");
+                    async.Remove("Remove", "Home");
+                    async.SaveField("photo");
+                    async.RemoveField("photo");
+                })
+                .ShowFileList(false)
+                .Events(e => e.Success("success"))
+        )
+        <img data-bind="attr: {src: PhotoPath}" class="k-image">
+        <button type="button" id="removeImage" class="k-button k-button-icontext">
+                    <span class="k-icon k-delete"></span>Remove
+        </button>
+        <ul class="k-reset k-floats k-tiles k-widget k-listview k-selectable">
+            <li class="k-tile">
+                <div class="k-thumb">
+                  
+                </div>
+                <strong data-bind="text: PhotoPath"></strong> 
+               
+            </li>
+        </ul>
+        <div style="clear:both;">
+        </div>
+        <script type="text/javascript">
+            $("#removeImage").click(function (e) s{
+                var grid = $("#Grid").data("kendoGrid");
+                var model = grid.editable.options.model;
+                if (model.PhotoPath) {
+                    $.ajax({
+                        url: '@Url.Action("Remove","Home")',
+                        data: {
+                            employeeID: model.EmployeeID
+                        }
+                    });
+                }
+                
+                debugger;
+            });
+        </script>
+     @*   <ul class="k-upload-files k-reset">
+            <li class="k-file" data-bind=>
+                <span class="k-filename" title="19133-KidsAcademy.jpg">19133-KidsAcademy.jpg</span>
+                <button type="button" class="k-button k-button-icontext k-upload-action">
+                <span class="k-icon k-delete"></span>Remove</button>
+            </li>
+            <li class="k-file">
+                <div class="k-thumb">
+                 <img alt="Tooltip.jpg" style="" src="/service/ImageBrowser/Thumbnail?path=Tooltip.jpg" class="k-image">
+                 </div>
+                 <strong>Tooltip.jpg</strong> 
+                 <span class="k-filesize">6.92 KB</span> 
+            </li>
+        </ul>*@
+    </div>
+</div>
