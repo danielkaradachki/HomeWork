@@ -173,15 +173,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\images\Employees\1.jpg" />
-    <Content Include="Content\images\Employees\2.jpg" />
-    <Content Include="Content\images\Employees\3.jpg" />
-    <Content Include="Content\images\Employees\4.jpg" />
-    <Content Include="Content\images\Employees\5.jpg" />
-    <Content Include="Content\images\Employees\6.jpg" />
-    <Content Include="Content\images\Employees\7.jpg" />
-    <Content Include="Content\images\Employees\8.jpg" />
-    <Content Include="Content\images\Employees\9.jpg" />
     <Content Include="App_Data\Northwind.ldf">
       <DependentUpon>Northwind.mdf</DependentUpon>
     </Content>
@@ -445,7 +436,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Northwind.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Views\Home\EditorTemplates\Employee.cshtml" />
+    <Content Include="Views\Home\EditorTemplates\EmployeeViewModel.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

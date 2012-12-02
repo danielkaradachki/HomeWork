@@ -9,7 +9,6 @@ namespace UploadInPopUp.Models
     {
         public int EmployeeID { get; set; }
         public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string PhotoPath { get; set; }
+        public string LastName { get; set; }        
     }
 }

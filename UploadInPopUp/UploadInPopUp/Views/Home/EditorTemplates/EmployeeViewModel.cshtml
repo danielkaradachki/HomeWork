@@ -1,0 +1,40 @@
+﻿@model UploadInPopUp.Models.EmployeeViewModel
+<script type="text/javascript">
+    function success() {
+
+    }
+</script>
+<div>
+    <div>
+        @Html.LabelFor(m => m.EmployeeID)
+        <span data-bind="text: EmployeeID"></span>
+    </div>
+    <div>
+        @Html.LabelFor(m => m.FirstName)
+        @Html.TextBoxFor(m => m.FirstName)
+        @Html.ValidationMessageFor(m => m.FirstName)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.LastName)
+        @Html.TextBoxFor(m => m.LastName)
+        @Html.ValidationMessageFor(m => m.LastName)
+    </div>
+    <div class="popupUpload">
+        @(
+            Html.Kendo().Upload()
+                .Name("PhotoPathUpload")
+                .Multiple(false)
+                .Async(async =>
+                {
+                    async.AutoUpload(true);
+                    async.Save("Save", "Home");
+                    async.SaveField("photo");
+                })
+                .ShowFileList(false)
+                .Events(e => e.Success("uploadSuccess").Upload("upload"))                
+        ) 
+        
+       <img id="uploadImageView" style='width:100px;height:100px;' src='@Url.Action("PhotoThumb", "Home")/${EmployeeID}' />   
+       <button type="button" class="k-button" onclick="removeImage()">Remove</button>
+    </div>
+</div>

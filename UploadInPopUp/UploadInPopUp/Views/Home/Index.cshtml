@@ -2,13 +2,13 @@
     ViewBag.Title = "Home Page";
 }
 
-@(Html.Kendo().Grid<UploadInPopUp.Models.Employee>()
-    .Name("Grid")    
+@(Html.Kendo().Grid<UploadInPopUp.Models.EmployeeViewModel>()
+    .Name("Grid")       
     .Columns(columns => {        
         columns.Bound(p => p.EmployeeID);
         columns.Bound(p => p.FirstName);
         columns.Bound(p => p.LastName);
-        columns.Bound(p => p.PhotoPath).ClientTemplate("<img src='" + Url.Action("PhotoThumb", "Home") + "/#=EmployeeID#" + "' >");
+        columns.Template(p => { }).ClientTemplate("<img style='width:100px;height:100px;' src='" + Url.Action("PhotoThumb", "Home") + "/#=EmployeeID#" + "' >");
         columns.Command(command => command.Edit());  
     })    
     .ToolBar(toolBar => toolBar.Create())
@@ -29,6 +29,37 @@
         .Create(create => create.Action("Create", "Home"))
     )
 )
-<style type="text/css">
+<script type="text/javascript">
+    function uploadSuccess(e) {        
+        document.getElementById("uploadImageView").setAttribute("src", e.response.path);
+        if (e.response.tempPath) {
+            var model = getEditModel();
+            model.set("tempPath", tempPath);
+        }
+    }
 
-</style>
+    function removeImage(e) {
+        var model = getEditModel();
+        var data = model.isNew() ? { tempPath: model.tempPath} : { employeeID: model.EmployeeID };
+        $.ajax({
+            url: '@Url.Action("RemoveImage","Home")',
+            type: "POST",
+            data: data,
+            success: function (e) {
+                 document.getElementById("uploadImageView").setAttribute("src", e.path);
+            }
+        });
+    }
+
+    function getEditModel() {
+        var grid = $("#Grid").data("kendoGrid");
+        return grid.editable.options.model;
+    }
+
+    function upload(e) {
+        var model = getEditModel();
+        if (!model.isNew()) {
+            e.data = { employeeID: model.EmployeeID };
+        }        
+    }
+</script>
