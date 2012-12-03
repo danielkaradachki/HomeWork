@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@(Html.Kendo().TreeView()
+    .Name("treeview")  
+    .DragAndDrop(true)         
+    .Template("<span data-id='#=item.id#'>#=item.Name#</span>")
+    .DataSource(dataSource => dataSource
+        .Read(read => read
+            .Action("Employees", "Home")
+        )
+    )
+)
