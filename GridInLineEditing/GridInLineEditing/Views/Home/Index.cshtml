@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@(Html.Kendo().Grid<GridInLineEditing.Models.ProductViewModel>()
+    .Name("grid")
+    .Columns(columns =>
+    {
+        columns.Command(comm =>
+        {
+            comm.Edit();
+            comm.Destroy();
+        }); 
+        columns.Bound(p => p.ProductID);
+        columns.Bound(p => p.ProductName);
+        columns.Bound(p => p.UnitPrice);
+        columns.ForeignKey(p => p.CategoryID,ViewData["categories"] as SelectList);       
+    })
+    .ToolBar(tools=> tools.Create())
+    .Pageable()
+    .Sortable()
+    .Filterable()    
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .Model(model =>
+            {
+                model.Id(p=> p.ProductID);
+                model.Field(p => p.ProductID).Editable(false);
+                model.Field(p => p.CategoryID).DefaultValue(1);
+            })
+        .Read(read => read.Action("Read", "Home"))
+        .Update(update => update.Action("Update", "Home"))
+        .Create(create => create.Action("Create", "Home"))
+        .Destroy(destroy => destroy.Action("Destroy", "Home"))
+    )
+)
