@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@( Html.Kendo().TreeView()
+    .Name("TreeView")
+    .BindTo((System.Collections.IEnumerable)ViewData["Customers"], mappings =>
+    {
+        mappings.For<Customer>(binding => binding
+                .ItemDataBound((item, customer) =>
+                {
+                    item.Text = customer.ContactName;
+                    item.Id = customer.CustomerID;                          
+                    item.Expanded = ((string[])ViewData["ExpandedNodes"]).Contains(customer.CustomerID);                   
+                })
+                .Children(customer => customer.Orders));
+
+        mappings.For<Order>(binding => binding
+                .ItemDataBound((item, order) =>
+                {
+                    item.Text = "Order #" + order.OrderID;
+                }));
+    })
+    .Events(events => events
+        .Collapse("Collapse")
+        .Expand("Expand")
+    ))
+
+<script type="text/javascript">
+    function Collapse(e) {
+        updateTreeViewState($(e.node).data("id"), "collapse");
+    }
+
+    function Expand(e) {
+        updateTreeViewState($(e.node).data("id"), "expand");
+    }
+
+    function updateTreeViewState(id, type) {
+        var expandedNodes = $.cookie('ExpandedNodes');
+        expandedNodes = expandedNodes ? expandedNodes.split(';') : [];
+        var itemIndex = $.inArray(id, expandedNodes);
+
+        if (type == "expand" && itemIndex == -1)
+            expandedNodes.push(id);
+        else if (type == "collapse" && itemIndex >= 0)
+            expandedNodes.splice(itemIndex, 1);
+
+        $.cookie('ExpandedNodes', expandedNodes.join(';'));
+    }
+
+</script>
