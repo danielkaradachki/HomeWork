@@ -1,0 +1,11 @@
+﻿@model int?           
+
+@(
+ Html.Kendo().DropDownListFor(m => m)
+        .HtmlAttributes(new { data_skip = "true", data_bind = "nullableValue: CategoryID" })
+        .OptionLabel("Select a category")
+        .BindTo((System.Collections.IEnumerable)ViewData["categories"])
+        .DataValueField("CategoryID")
+        .DataTextField("CategoryName")        
+        
+)

@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<script type="text/javascript">
+    kendo.data.binders.widget.nullableValue = kendo.data.Binder.extend({
+        init: function (widget, bindings, options) {
+            kendo.data.Binder.fn.init.call(this, widget.element[0], bindings, options);
+            this.widget = widget;
+            this._change = $.proxy(this.change, this);
+            this.widget.bind("change", this._change);
+        },
+        refresh: function () {
+            var value = this.bindings.nullableValue.get();
+            this.widget.value(value);
+        },
+        change: function () {
+            var value = this.widget.value();
+            if (value === "") {
+                value = null;
+            }
+
+            this.bindings.nullableValue.set(value);
+        },
+        destroy: function () {
+            this.widget.unbind("change", this._change);
+        }
+    });
+
+</script>
+@(Html.Kendo().Grid<BindingToNullableField.Models.Product>()
+    .Name("grid")
+    .Columns(columns =>
+    {
+        columns.Command(comm =>
+        {
+            comm.Edit();            
+        }).Width(200); 
+        columns.Bound(p => p.ProductID).Width(60);
+        columns.Bound(p => p.ProductName);
+        columns.ForeignKey(p => p.CategoryID, (System.Collections.IEnumerable)ViewData["categories"],
+            "CategoryID", "CategoryName").EditorTemplateName("NullableDropDown");       
+    })    
+    .Pageable()
+    .Sortable()
+    .Filterable()    
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .Model(model =>
+            {
+                model.Id(p=> p.ProductID);
+                model.Field(p => p.ProductID).Editable(false);                
+            })
+        .Read(read => read.Action("Read", "Home"))
+        .Update(update => update.Action("Update", "Home"))
+    )
+)
