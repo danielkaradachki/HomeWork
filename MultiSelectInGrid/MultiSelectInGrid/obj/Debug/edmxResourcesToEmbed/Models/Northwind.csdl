@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NorthwindModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="NorthwindEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Employees" EntityType="NorthwindModel.Employee" />
+    <EntitySet Name="Territories" EntityType="NorthwindModel.Territory" />
+    <AssociationSet Name="FK_Employees_Employees" Association="NorthwindModel.FK_Employees_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Employees1" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeTerritories" Association="NorthwindModel.EmployeeTerritories">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Territories" EntitySet="Territories" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="Title" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="TitleOfCourtesy" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+    <Property Name="BirthDate" Type="DateTime" />
+    <Property Name="HireDate" Type="DateTime" />
+    <Property Name="Address" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+    <Property Name="City" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="Region" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="PostalCode" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="Country" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="HomePhone" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+    <Property Name="Extension" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="ReportsTo" Type="Int32" />
+    <Property Name="PhotoPath" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Employees1" Relationship="NorthwindModel.FK_Employees_Employees" FromRole="Employees" ToRole="Employees1" />
+    <NavigationProperty Name="Employee1" Relationship="NorthwindModel.FK_Employees_Employees" FromRole="Employees1" ToRole="Employees" />
+    <NavigationProperty Name="Territories" Relationship="NorthwindModel.EmployeeTerritories" FromRole="Employees" ToRole="Territories" />
+  </EntityType>
+  <EntityType Name="Territory">
+    <Key>
+      <PropertyRef Name="TerritoryID" />
+    </Key>
+    <Property Name="TerritoryID" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="TerritoryDescription" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
+    <Property Name="RegionID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="NorthwindModel.EmployeeTerritories" FromRole="Territories" ToRole="Employees" />
+  </EntityType>
+  <Association Name="FK_Employees_Employees">
+    <End Role="Employees" Type="NorthwindModel.Employee" Multiplicity="0..1" />
+    <End Role="Employees1" Type="NorthwindModel.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Employees1">
+        <PropertyRef Name="ReportsTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeTerritories">
+    <End Role="Employees" Type="NorthwindModel.Employee" Multiplicity="*" />
+    <End Role="Territories" Type="NorthwindModel.Territory" Multiplicity="*" />
+  </Association>
+</Schema>

@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NorthwindModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="NorthwindModelStoreContainer">
+    <EntitySet Name="Employees" EntityType="NorthwindModel.Store.Employees" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmployeeTerritories" EntityType="NorthwindModel.Store.EmployeeTerritories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Territories" EntityType="NorthwindModel.Store.Territories" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Employees_Employees" Association="NorthwindModel.Store.FK_Employees_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Employees1" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeTerritories_Employees" Association="NorthwindModel.Store.FK_EmployeeTerritories_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="EmployeeTerritories" EntitySet="EmployeeTerritories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeTerritories_Territories" Association="NorthwindModel.Store.FK_EmployeeTerritories_Territories">
+      <End Role="Territories" EntitySet="Territories" />
+      <End Role="EmployeeTerritories" EntitySet="EmployeeTerritories" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="Title" Type="nvarchar" MaxLength="30" />
+    <Property Name="TitleOfCourtesy" Type="nvarchar" MaxLength="25" />
+    <Property Name="BirthDate" Type="datetime" />
+    <Property Name="HireDate" Type="datetime" />
+    <Property Name="Address" Type="nvarchar" MaxLength="60" />
+    <Property Name="City" Type="nvarchar" MaxLength="15" />
+    <Property Name="Region" Type="nvarchar" MaxLength="15" />
+    <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Country" Type="nvarchar" MaxLength="15" />
+    <Property Name="HomePhone" Type="nvarchar" MaxLength="24" />
+    <Property Name="Extension" Type="nvarchar" MaxLength="4" />
+    <Property Name="Photo" Type="image" />
+    <Property Name="Notes" Type="ntext" />
+    <Property Name="ReportsTo" Type="int" />
+    <Property Name="PhotoPath" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="EmployeeTerritories">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+      <PropertyRef Name="TerritoryID" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="TerritoryID" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Territories">
+    <Key>
+      <PropertyRef Name="TerritoryID" />
+    </Key>
+    <Property Name="TerritoryID" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="TerritoryDescription" Type="nchar" Nullable="false" MaxLength="50" />
+    <Property Name="RegionID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Employees_Employees">
+    <End Role="Employees" Type="NorthwindModel.Store.Employees" Multiplicity="0..1" />
+    <End Role="Employees1" Type="NorthwindModel.Store.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Employees1">
+        <PropertyRef Name="ReportsTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeTerritories_Employees">
+    <End Role="Employees" Type="NorthwindModel.Store.Employees" Multiplicity="1" />
+    <End Role="EmployeeTerritories" Type="NorthwindModel.Store.EmployeeTerritories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="EmployeeTerritories">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeTerritories_Territories">
+    <End Role="Territories" Type="NorthwindModel.Store.Territories" Multiplicity="1" />
+    <End Role="EmployeeTerritories" Type="NorthwindModel.Store.EmployeeTerritories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Territories">
+        <PropertyRef Name="TerritoryID" />
+      </Principal>
+      <Dependent Role="EmployeeTerritories">
+        <PropertyRef Name="TerritoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
