@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>@ViewBag.Title</title>
+	<link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2013.1.319/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2013.1.319/kendo.dataviz.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2013.1.319/kendo.default.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2013.1.319/kendo.dataviz.default.min.css")" rel="stylesheet" type="text/css" />
+	<script src="@Url.Content("~/Scripts/kendo/2013.1.319/jquery.min.js")"></script>
+	<script src="@Url.Content("~/Scripts/kendo/2013.1.319/kendo.core.js")"></script>
+	<script src="@Url.Content("~/Scripts/kendo/2013.1.319/kendo.dataviz.core.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2013.1.319/kendo.dataviz.vml.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2013.1.319/kendo.dataviz.svg.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo.barcode.js")"></script>	
+</head>
+
+<body>
+	<div class="page">
+		<header>
+			<div id="title">
+				<h1>My Kendo UI for MVC Application</h1>
+			</div>
+		</header>
+		<section id="main">
+			@RenderBody()
+		</section>
+		<footer>
+		</footer>
+	</div>
+</body>
+</html>
