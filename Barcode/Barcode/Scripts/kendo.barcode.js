@@ -68,6 +68,9 @@
                 font: "30px sans-serif"
             }));
         },
+        getStartName: function () {
+            return START;
+        },
         _addPatternElements: function (pattern, position, forceSpace) {
             var step,
                 multiple;
@@ -115,7 +118,7 @@
                this.position = this._addPatternElements(this._getCharacterPattern(QUIET_ZONE), this.position, true);
             },
             addStart: function () {
-                this.position = this._addPatternElements(this._getCharacterPattern(START), this.position);
+                this.position = this._addPatternElements(this._getCharacterPattern(this.getStartName()), this.position);
                 this.position+= this._interCharacterGap();
             },
             addCheck: function (value) {
@@ -167,14 +170,17 @@
             addStop: function () {
 
             }, 
+            getStartName: function () {
+                return "startA";
+            },
+            characterMap: {
+                K: { pattern: [[1, 1], [0, 1], [1, 2], [0, 3], [1, 3], [0, 1]], value: 43 },
+                R: { pattern: [[1, 2], [0, 3], [1, 1], [0, 1], [1, 3] , [0, 1]], value: 50 },
+                U: { pattern: [ [1, 2], [0, 1], [1, 3], [0, 1], [1, 3], [0, 1]], value: 53 },
+                startA: { pattern: [ [1, 2], [0, 1], [1, 1], [0, 4], [1, 1], [0, 2]], value: 50 }            
+            },
             options: {
-                baseUnit: 3,
-                characterMap: {
-                    K: { pattern: [[1, 1], [0, 1], [1, 2], [0, 3], [1, 3], [0, 1]], value: 43 },
-                    R: { pattern: [[1, 2], [0, 3], [1, 1], [0, 1], [1, 3] , [0, 1]], value: 50 },
-                    U: { pattern: [ [1, 2], [0, 1], [1, 3], [0, 1], [1, 3], [0, 1]], value: 53 },
-                    startA: { pattern: [ [1, 2], [0, 1], [1, 1], [0, 4], [1, 1], [0, 2]], value: 50 }            
-                }
+                baseUnit: 3
             }
         })
     };
