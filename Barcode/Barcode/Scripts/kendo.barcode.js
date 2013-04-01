@@ -10,12 +10,17 @@
 (function ($, undefined) {
     var kendo = window.kendo,
         dataviz = kendo.dataviz,
-        ChartElement = dataviz.ChartElement,
+        Widget = kendo.ui.Widget,
         Box2D = dataviz.Box2D,
+        Text = dataviz.Text,
         RATIO = "ratio",
         START = "start";
         QUIET_ZONE = "quietZone",
         CHARACTER_MAP = "characterMap";
+
+    function getCharacterAt(value, index) {
+        return value[index] || value.charAt(index);
+    }
 
     var Encoding  = kendo.Class.extend({
         init: function (view, options) {
@@ -49,23 +54,38 @@
         addStart: function () {
             
         },
+        getLength: function () {
+            
+        },
         addCheck: function (value) {
             this.position-= this._interCharacterGap();
         },
         addData: function (value) {
             for (var i = 0; i < value.length; i++) {
-                this.position = this._addPatternElements(this._getCharacterPattern(value[i]), this.position) +  
+                this.position = this._addPatternElements(this._getCharacterPattern(getCharacterAt(value, i)), this.position) +  
                     this._interCharacterGap();                            
             }
         },
         addStop: function () {
             
         },
+        getTextWidth: function (text, font) {
+            var element = $("<div style='visibility:hidden;top:-1000px;left: -100px;position:absolute;font: " + font + ";'>" + text + "</div>").appendTo(document.body);
+            var width = element.width();
+            element.remove();
+            return width;
+        },
         addText: function (value) {    
-            //which element to use in order to be able to center the text at baseline                  
+            var length = this.position,
+                fontSize = this.options.fontSize,
+                font = fontSize + "px " + this.options.fontFamily,
+                textLength = value.length,
+                x =  (length - this.getTextWidth(value, font)) / 2,
+                y = this.height,
+                baseline = this.options.fontSize;
             this.view.children.push(this.view.createText(value, {
-                baseline: 30, x: this.width / 2 - this.baseUnit * 10, y: this.height, color: this.options.color,
-                font: "30px sans-serif"
+                baseline: baseline, x: x, y: y, color: this.options.color,
+                font: font
             }));
         },
         getStartName: function () {
@@ -185,35 +205,42 @@
         })
     };
 
-    var Barcode = ChartElement.extend({
+    var Barcode = Widget.extend({
         init: function (element, options) {                                     
-             ChartElement.fn.init.call(element, options);
+             Widget.fn.init.call(this, element, options);
              this.element = element;            
-             this.view = new (dataviz.ui.defaultView())();   
+             this.view = new (dataviz.ui.defaultView())(); 
              this.setOptions(options);                                
         },
         setOptions: function (options) {
-            this.options = $.extend(this.options, options);
-            this.encoding = new encodings[this.options.type.toLowerCase()]
+           
+            if (!this.enocoding || this.options.encoding !== options.encoding) {
+                 this.encoding = new encodings[this.options.encoding.toLowerCase()]
                 (this.view, $.extend(this.options, options, {baseUnit: this.options.width / 100}));
-             this.value(this.options.value);
+            }
+            this.options = $.extend(this.options, options);           
+            this.value(this.options.value);
         },
         value: function(value){
             this.value = value;
             this.view.children = [];
+            this.view.children.push(this.view.createRect(new Box2D(0,0, this.options.width, this.options.height),
+                { fill: this.options.backColor}));
             this.encoding.addElements(value);  
             this.view.renderTo(this.element);
         },
         options: {
             name: "Barcode",
             value: "",
-            type: "Code39",
+            encoding: "code39",
             width: 300,
             height: 100,
             lineColor: "black",
             backColor: "white",
             color: "black",
-            showText: true          
+            showText: true,
+            fontSize: 30,
+            fontFamily: "sans-serif"                    
         }
     });
 
