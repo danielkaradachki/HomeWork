@@ -1,15 +1,40 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
+<style type="text/css">
+   [data-role=barcode]{
+       margin: 10px;
+   }
+</style>
 <div id="barcode">
+</div>
+<div id="barcode2">
 </div>
 <script>
     $("#barcode").kendoBarcode({
         value: "KUR",
         lineColor: "red",
         color: "red",
-        backColor: "yellow"
+        backColor: "yellow",
+        width: 300,
+        height: 100,
+        encoding: {
+            name: "code39",
+            addCheck: true
+        }
+    });
+
+    $("#barcode2").kendoBarcode({
+        value: "KUR",
+        lineColor: "red",
+        color: "red",
+        backColor: "yellow",
+        width: 300,
+        height: 100,
+        encoding: {
+            name: "code39",
+            addCheck: false
+        }
     });
   
 </script>
