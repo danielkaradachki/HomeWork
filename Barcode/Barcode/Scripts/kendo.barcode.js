@@ -22,12 +22,9 @@
             this.options = $.extend(this.options, options);         
         },       
         encode: function (value, width, height) {
-            this.prepareValues(value, width, height);            
-            this.addQuietZone();
-            this.addStart();
-            this.addValue();
-            this.addCheckSum();
-            this.addStop();
+            this.initValue(value, width, height);            
+            this.addQuietZone();            
+            this.addData();            
             this.addQuietZone();     
                 
             return {
@@ -35,23 +32,14 @@
                 pattern: this.pattern
             };
         },      
-        prepareValues: function (value) {
-            throw new Error("Not implemented");
-        },
-        addQuietZone: function () { 
-            this.pattern.push([0, this.quietZoneLength]);
-        },
-        addStart: function () {
-            
-        },
-        addCheckSum: function () {
-            
-        },
-        addValue: function () {
+        initValue: function (value, width, height) {
            
         },
-        addStop: function () {
-            
+        addQuietZone: function () { 
+            this.pattern.push([0, DEFAULT_QUIETZONE_LENGTH]);
+        },
+        addData: function () {
+    
         }
     }); 
 
@@ -59,7 +47,7 @@
 
     // TO DO: validate value characters
     encodings.code39 =  Encoding.extend({
-        prepareValues: function (value, width, height) {
+        initValue: function (value, width, height) {
             this.baseUnit = this.getBaseUnit(value, width, height);
             this.quietZoneLength = DEFAULT_QUIETZONE_LENGTH;
             var minHeight = Math.max(0.15 * width, 24);
@@ -74,16 +62,24 @@
              this.addPattern(character.pattern);
              this.addCharacterGap();  
         },        
-        addValue: function () {
+        addData: function () {
             var character;
+
+            this.addStart();
+
             for(var i = 0; i < this.value.length; i++){
                 character = this.characterMap[this.value.charAt(i)];
                 this.addPattern(character.pattern);
                 this.addCharacterGap();    
             }
+
+            if (this.options.addCheckSum) {
+                this.addCheckSum();
+            }
+
+            this.addStop();
         },
         addCheckSum: function () {
-            if (this.options.addCheck) {
                 var sum = 0,
                     mod43;
                 for (var i = 0; i < this.value.length; i++) {
@@ -93,17 +89,17 @@
                 mod43 = sum % 43;
                 character = this.findCharacterByValue(mod43);
                 this.addPattern(character.pattern);
-                this.addCharacterGap();  
-            }
+                this.addCharacterGap();              
         },
         addStop: function () {
             var character =  this.characterMap["start"];
-             this.addPattern(character.pattern);
+            this.addPattern(character.pattern);
         }, 
         getBaseUnit: function (value, width, height) {
             var ratio = this.options.minRatio,
                 length = value.length,
                 baseUnit; 
+               
             while ((baseUnit = this.calculateBaseUnit(length, width, ratio)) < 0.72 &&  
                 ratio <= this.options.maxRatio) {
                 ratio += 0.1;
@@ -117,7 +113,8 @@
             return baseUnit;
         },
         calculateBaseUnit:function(length, width, ratio){
-            return width / ((length + 2 + (this.options.addCheck ? 1 : 0)) * (ratio + 2) * 3 + length + 1 + 2 * DEFAULT_QUIETZONE_LENGTH);
+            var checkLength = this.options.addCheckSum ? 1 : 0;
+            return width / ((length + 2 + checkLength) * (ratio + 2) * 3 + length + 1 + 2 * DEFAULT_QUIETZONE_LENGTH);
         },
         addPattern: function (pattern) {                
             for (var i = 0; i < pattern.length; i++) {
@@ -156,7 +153,7 @@
             ratio: 3,
             minRatio: 2,
             maxRatio: 3.4,
-            addCheck: false            
+            addCheckSum: false            
         }
     });
 
@@ -164,7 +161,7 @@
         init: function (options) {
             this.options = $.extend(this.options, options);         
         },            
-        prepareValues: function (value, width, height) {
+        initValue: function (value, width, height) {
             this.type = "B",
                 code = value.charCodeAt(0);
             if (code < 32) {
@@ -175,11 +172,10 @@
             }  
             else if(code > 127 && code < 256 && code - 128 < 32){
                 this.type = "A";
-            }
-            //if > 128 start character ?
+            }           
         },
-        getCharacter: function (char) {
-            var code = char.charCodeAt(),
+        addPattern: function (value, index) {
+            var code = value.charCodeAt(index),
                 mapCode;
             if (code < 32) {
                 mapCode = code + 64;
@@ -187,41 +183,33 @@
             else if(32 <= code && code < 128){
                 mapCode = code + 32;
             }
-            else if(char.length > 1){
+            else if(type == "C"){
                 var number = parseInt(char);
                 mapCode = code + 32;
             }
             else if(code > 127 &&  code< 256){
                 mapCode = code - 128;
-            }            
-            return this.characterMap[mapCode];
-        },
-        addStart: function () {
-            
+            }                        
         },
         addCheckSum: function () {
             
         },
-        addValue: function () {
+        addData: function () {
            
         },
         addStop: function () {
             
         },
         characterMap: {
+            //ascii
             75: {pattern: "112331", value: 43},//K
             82: {pattern: "231131", value: 50}, //R
             85: {pattern: "213131", value: 53}, //U
+            //literal
             startA: { pattern: "211412", value: 103},
             startB: { pattern: "211214", value: 104},
-            startC: { pattern: "211232", value: 105},
-            fnc4: {},
-            shiftA: {},
-            shiftB: {},
-            codeA: {},
-            codeB: {},
-            codeC: {}
-        },
+            startC: { pattern: "211232", value: 105}
+        },       
         options: {
             
         }    
@@ -278,23 +266,20 @@
               this.view.children.push(this.view.createRect(new Box2D(0,0, this.options.width, this.options.height),
                 { fill: this.options.backColor}));
         },
-        getTextWidth: function (text, font) {
-            var element = $("<div style='visibility:hidden;top:-1000px;left: -100px;position:absolute;font: " + 
-                font + ";'>" + text + "</div>").appendTo(document.body);
-            var width = element.width();
-            element.remove();
-            return width;
-        },
-        addText: function (text) {    
-            var length = this.options.width,
-                fontSize = this.options.fontSize,
-                font = fontSize + "px " + this.options.fontFamily,
-                textLength = text.length,
-                x =  (length - this.getTextWidth(text, font)) / 2,
-                y = this.options.height,
-                baseline = this.options.fontSize;
-            this.view.children.push(this.view.createText(text, {
-                baseline: baseline, x: x, y: y, color: this.options.color,
+        addText: function (value) { 
+            var font = this.options.fontSize + "px " + this.options.fontFamily,
+                text = new Text(value, {
+                    font: font, 
+                    color: this.options.color,
+                    align: "center",
+                    vAlign: "bottom"
+                });               
+            text.reflow(new Box2D(0, 0, this.options.width, this.options.height + this.options.fontSize));
+            this.view.children.push(this.view.createText(value, {
+                baseline: text.baseline, 
+                x: text.box.x1, 
+                y: text.box.y1, 
+                color: this.options.color,
                 font: font
             }));
         },
@@ -310,7 +295,7 @@
             backColor: "white",
             color: "black",
             showText: true,
-            fontSize: 30,
+            fontSize: 16,
             fontFamily: "sans-serif"                    
         }
     });
