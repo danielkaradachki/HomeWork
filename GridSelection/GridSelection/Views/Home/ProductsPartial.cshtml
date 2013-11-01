@@ -1,0 +1,11 @@
+﻿@model IEnumerable<GridSelection.Models.Product>
+
+ @(
+     Html.Kendo().Grid(Model)
+        .Name("products")
+        .Columns(columns =>
+        {
+            columns.Bound(p => p.ProductID);
+            columns.Bound(p => p.ProductName);
+        })
+)

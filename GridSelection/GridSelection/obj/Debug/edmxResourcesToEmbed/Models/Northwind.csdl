@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Northwind" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="NorthwindContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="Northwind.Category" />
+    <EntitySet Name="Products" EntityType="Northwind.Product" />
+    <AssociationSet Name="FK_Products_Categories" Association="Northwind.FK_Products_Categories">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Type="Int32" Name="CategoryID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Binary" Name="Picture" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Products" Relationship="Northwind.FK_Products_Categories" FromRole="Category" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Type="Int32" Name="ProductID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ProductName" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="SupplierID" />
+    <Property Type="Int32" Name="CategoryID" />
+    <Property Type="String" Name="QuantityPerUnit" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="UnitPrice" Precision="19" Scale="4" />
+    <Property Type="Int16" Name="UnitsInStock" />
+    <Property Type="Int16" Name="UnitsOnOrder" />
+    <Property Type="Int16" Name="ReorderLevel" />
+    <Property Type="Boolean" Name="Discontinued" Nullable="false" />
+    <NavigationProperty Name="Category" Relationship="Northwind.FK_Products_Categories" FromRole="Product" ToRole="Category" />
+  </EntityType>
+  <Association Name="FK_Products_Categories">
+    <End Type="Northwind.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="Northwind.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

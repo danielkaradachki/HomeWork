@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "ClientSelection";
+}
+
+<h2>ClientSelection</h2>
+
+@(
+    Html.Kendo().Grid<GridSelection.Models.Category>()
+        .Name("categories")
+        .Columns(columns =>
+        {            
+            columns.Bound(c => c.CategoryID);
+            columns.Bound(c => c.CategoryName);
+        })
+        .Selectable()
+        .DataSource(source => source
+            .Ajax()
+            .Read("ReadCategories", "Home")
+        )
+        .Events(events => events.Change("change"))
+)
+<script type="text/javascript">
+    function change(e) {
+        
+        var item = this.dataItem(this.select()),
+            productsGrid = $("#products").data("kendoGrid");
+        productsGrid.dataSource.filter({ field: "CategoryID", operator: "eq", value: item.CategoryID });
+    }
+
+</script>
+
+ @(
+     Html.Kendo().Grid<GridSelection.Models.Product>()
+        .Name("products")
+        .Columns(columns =>
+        {
+            columns.Bound(p => p.ProductID);
+            columns.Bound(p => p.ProductName);
+        })
+        .AutoBind(false)
+        .DataSource(source => source
+            .Ajax()
+            .Read("ReadProducts", "Home")
+        )
+)

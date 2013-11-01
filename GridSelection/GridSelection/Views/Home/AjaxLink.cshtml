@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "AjaxLink";
+}
+
+<h2>AjaxLink</h2>
+@model IEnumerable<GridSelection.Models.Category>
+@(
+    Html.Kendo().Grid(Model)
+        .Name("categories")
+        .Columns(columns =>
+        {
+            columns.Template(@<text>
+                @Ajax.ActionLink("Products", "ProductsPartial", new { categoryID = item.CategoryID }, new AjaxOptions()
+                {
+                    UpdateTargetId = "productsPartial"
+                })
+            </text>);
+            columns.Bound(c => c.CategoryID);
+            columns.Bound(c => c.CategoryName);
+        })
+        .DataSource(source => source
+            .Server()
+            .Model(model => model.Id(c=> c.CategoryID)))
+)
+
+<div id="productsPartial">
+</div>

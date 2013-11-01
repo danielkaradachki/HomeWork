@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "ServerSelection";
+}
+
+<h2>ServerSelection</h2>
+
+@model GridSelection.Models.ServerSelectionViewModel
+
+@(
+    Html.Kendo().Grid(Model.Categories)
+        .Name("categories")
+        .Columns(columns =>
+        {
+            columns.Command(command => command.Select());
+            columns.Bound(c => c.CategoryID);
+            columns.Bound(c => c.CategoryName);
+        })
+        .DataSource(source => source
+            .Server()
+            .Model(model => model.Id(c=> c.CategoryID)))
+)
+
+
+@if (Model.Products != null)
+{
+   @Html.Partial("ProductsPartial", Model.Products)
+}
+
