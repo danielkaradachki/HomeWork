@@ -1,0 +1,62 @@
+﻿@(
+ Html.Kendo().Grid<CascadDropDownFilter.Models.Customer>()
+        .Name("grid")
+        .Columns(columns =>
+        {
+            columns.Bound(c => c.Country).Filterable(filterable => filterable.UI("countriesDropDown"));
+            columns.Bound(c => c.City).Filterable(filterable => filterable.UI("citiesDropDown"));
+        })
+        .Filterable()
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .ServerOperation(false)
+            .Read("Read", "Home")
+            .Events(events=> events.RequestEnd("requestEnd"))
+        )
+)
+
+<script>
+    var countriesDataSource = new kendo.data.DataSource({});
+    var citiesDataSource = new kendo.data.DataSource({});
+
+    function requestEnd(e) {
+        if (e.type == "read") {
+            countriesDataSource.data(distinct(e.response.Data, "Country"));
+            citiesDataSource.data(distinct(e.response.Data, "City"));
+        }
+    }
+
+    function distinct(data, field) {
+        var unique = {},
+            result = [];
+        for (var i = 0; i < data.length; i++) {
+            if (!unique[data[i][field]]) {
+                unique[data[i][field]] = true;
+                result.push(data[i]);
+            }
+        }
+
+        return result
+    }
+
+    function countriesDropDown(element) {
+        element.kendoDropDownList({
+            dataSource: countriesDataSource,
+            dataTextField: "Country",
+            dataValueField: "Country",
+            optionLabel: "Select country",
+            change: function () {
+                citiesDataSource.filter({ field: "Country", operator: "eq", value: this.value() });
+            }
+        });
+    }
+
+    function citiesDropDown(element) {
+        element.kendoDropDownList({
+            dataSource: citiesDataSource,
+            optionLabel: "Select City",
+            dataTextField: "City",
+            dataValueField: "City"
+        });
+    }
+</script>
