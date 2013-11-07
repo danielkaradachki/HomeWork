@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NorthwindModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="NorthwindEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Customers" EntityType="NorthwindModel.Customer" />
+    <EntitySet Name="Orders" EntityType="NorthwindModel.Order" />
+    <AssociationSet Name="FK_Orders_Customers" Association="NorthwindModel.FK_Orders_Customers">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Type="String" Name="CustomerID" Nullable="false" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ContactName" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ContactTitle" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Address" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="City" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Region" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PostalCode" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Country" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Phone" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Fax" MaxLength="24" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Orders" Relationship="NorthwindModel.FK_Orders_Customers" FromRole="Customer" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Type="Int32" Name="OrderID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CustomerID" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Type="Int32" Name="EmployeeID" />
+    <Property Type="DateTime" Name="OrderDate" />
+    <Property Type="DateTime" Name="RequiredDate" />
+    <Property Type="DateTime" Name="ShippedDate" />
+    <Property Type="Int32" Name="ShipVia" />
+    <Property Type="Decimal" Name="Freight" Precision="19" Scale="4" />
+    <Property Type="String" Name="ShipName" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ShipAddress" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ShipCity" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ShipRegion" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ShipPostalCode" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ShipCountry" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Customer" Relationship="NorthwindModel.FK_Orders_Customers" FromRole="Order" ToRole="Customer" />
+  </EntityType>
+  <Association Name="FK_Orders_Customers">
+    <End Type="NorthwindModel.Customer" Role="Customer" Multiplicity="0..1" />
+    <End Type="NorthwindModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

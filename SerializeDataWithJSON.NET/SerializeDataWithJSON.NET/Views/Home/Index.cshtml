@@ -1,0 +1,16 @@
+﻿@model IEnumerable<SerializeDataWithJSON.NET.Models.Order>
+
+@(
+    Html.Kendo().Grid(Model)
+        .Name("grid")
+        .Columns(columns =>
+            {
+                columns.Bound(p => p.OrderID);
+                columns.Bound(p => p.OrderDate).Format("{0:d}");            
+            })
+        .Pageable()
+        .DataSource(source => source
+            .Ajax()
+            .Read("Read", "Home"))
+
+)
